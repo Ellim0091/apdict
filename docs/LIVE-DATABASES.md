@@ -22,3 +22,19 @@ Future useful adapters: ChEBI for chemical ontology relationships and RCSB PDB f
 ## Definitions and terminology
 
 PubChem results now include a short ChEBI definition excerpt when supplied by its compound description endpoint. ChEBI is selected because it provides explicit CC BY 4.0 reuse terms; arbitrary contributor prose is not copied. UniProt results include a short FUNCTION annotation excerpt under CC BY 4.0. Each excerpt has its own source and license links. Missing or failed descriptions show an honest unavailable message while retaining property results. Excerpts contain at most two sentences/800 characters and are not AI-generated simplifications.
+
+## Chemical neighborhoods (2026-10-17)
+
+PubChem compound results now load a **Related to [compound]** neighborhood from ChEMBL. `GET /api/related?cid=...` resolves a PubChem CID to SMILES/InChIKey, then calls the ChEMBL similarity API with a 70% threshold. It selects up to six distinct InChIKey neighbors from the first twelve results, excludes the exact seed, and displays the provider's score, formula and ChEMBL link. This is a sampled one-hop star, not a complete chemical-space graph; no neighbor-to-neighbor edges are inferred. Salts/forms and other structures may have identical fingerprints, so 100% is not a claim of molecular identity.
+
+Clicking a graph node or **Explore** resolves that neighbor's exact InChIKey through PubChem and opens its properties, definition (when available) and own neighborhood. Display names are kept separate from lookup identifiers to avoid confusing a salt or isomer with a similarly named compound. Unknown identities and missing data stay explicit rather than being guessed. Related search errors never hide the original compound result and can be retried.
+
+ChEMBL was selected from the proposed chemical-space sources because it offers a hosted similarity endpoint without a new database, package or API key. Neo4j/Fragment Network and RDKit/NetworkX are potential future self-hosted graph/index approaches; they are not installed or represented as connected services. Global-Chem is not connected.
+
+- API: https://chembl.gitbook.io/chembl-interface-documentation/web-services/chembl-data-web-services
+- ChEMBL license: https://chembl.gitbook.io/chembl-interface-documentation/frequently-asked-questions/general-questions
+- Redisplayed ChEMBL result data is provided under **CC BY-SA 3.0**, credited to ChEMBL / EMBL-EBI; fields are selected/reformatted. This is separate from application code and editorial content.
+
+The endpoint validates numeric CIDs, fixes upstream hosts, uses 15-second upstream timeouts, deduplicates pending requests, and applies a process-local gate and bounded ten-minute response cache. It never fetches caller-provided URLs. It has the same prototype limitations as the original lookup gate; production needs shared upstream rate limiting. Structural similarity describes fingerprints, not shared biological function, efficacy or safety.
+
+Privacy change: after a submitted PubChem lookup, the app sends the returned compound's identifier to PubChem for a structure and that structure to ChEMBL to find neighbors. Clicking a neighbor submits its identifier to PubChem. It does not send saved progress or use account credentials. No queries are sent merely from typing. Requests only occur for the first compound when a name lookup matches multiple records.

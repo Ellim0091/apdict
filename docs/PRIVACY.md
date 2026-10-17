@@ -13,3 +13,7 @@
 ## Temporary live lookups (2026-10-17)
 
 The user enabled PubChem and UniProt integration. Submitting the live database form sends the submitted term through our server to the selected provider. Typing alone sends no external query. Server responses/terms may be cached in process memory for ten minutes. Saved concepts and student progress remain on the device. Application code does not log searches, but standard host HTTP access logs may contain request URLs, including lookup terms. See `LIVE-DATABASES.md`.
+
+## Related chemical lookup
+
+For a submitted PubChem search, the first result now also triggers structure retrieval from PubChem and a ChEMBL similarity lookup. The compound structure is sent to ChEMBL; selecting a neighbor sends its InChIKey to PubChem. Short-lived server caches and standard host request-log behavior apply as described in `LIVE-DATABASES.md`. Student study progress remains local.

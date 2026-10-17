@@ -29,7 +29,7 @@ function safeSourceUrl(value: unknown, fallback: string): string {
 async function lookup(provider: Provider, query: string): Promise<LookupResult> {
   let records: ExternalRecord[];
   if (provider === 'pubchem') {
-    const identifier = /^\d+$/.test(query) ? 'cid' : 'name';
+    const identifier = /^\d+$/.test(query) ? 'cid' : /^[A-Z]{14}-[A-Z]{10}-[A-Z]$/.test(query) ? 'inchikey' : 'name';
     const url = new URL(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/${identifier}/${encodeURIComponent(query)}/property/Title,MolecularFormula,MolecularWeight,IUPACName/JSON`);
     const data = obj(await fetchJson(url));
     records = list(obj(data.PropertyTable).Properties).slice(0, 5).flatMap(value => {
@@ -52,11 +52,11 @@ async function lookup(provider: Provider, query: string): Promise<LookupResult> 
             text: excerpt(text(description.Description)), sourceName: 'ChEBI via PubChem',
             sourceUrl: safeSourceUrl(description.DescriptionURL, record.sourceUrl),
             license: 'CC BY 4.0 · Excerpt; formatting adjusted', licenseUrl: 'https://www.ebi.ac.uk/chebi/about',
-          } } : { ...record, definitionUnavailable: true };
+          } } : { ...record, definitionUnavailable: true, definitionUnavailableReason: information.some(d => String(d.CID) === record.id && text(d.Description)) ? 'not-licensed' as const : 'not-provided' as const };
         });
       } catch {
         // Descriptions are optional: compound properties remain available on upstream failure.
-        records = records.map(record => ({...record, definitionUnavailable: true}));
+        records = records.map(record => ({...record, definitionUnavailable: true, definitionUnavailableReason: 'request-failed' as const}));
       }
     }
   } else {
@@ -72,7 +72,7 @@ async function lookup(provider: Provider, query: string): Promise<LookupResult> 
       const recommended = obj(obj(p.proteinDescription).recommendedName);
       const functionText = list(p.comments).map(obj).filter(c => c.commentType === 'FUNCTION').flatMap(c => list(c.texts).map(t => text(obj(t).value))).filter(Boolean).join(' ');
       const definition = functionText ? {text: excerpt(functionText), sourceName: 'UniProt Consortium', sourceUrl: `https://www.uniprot.org/uniprotkb/${id}/entry`, license: 'CC BY 4.0 · Function excerpt; formatting adjusted', licenseUrl: 'https://www.uniprot.org/help/license'} : undefined;
-      return [{ id, definition, definitionUnavailable: !definition, title: text(obj(recommended.fullName).value) || id, subtitle: `UniProt ${id} · Reviewed human protein`, sourceUrl: `https://www.uniprot.org/uniprotkb/${id}/entry`, properties: [
+      return [{ id, definition, definitionUnavailable: !definition, definitionUnavailableReason: !definition ? 'not-provided' as const : undefined, title: text(obj(recommended.fullName).value) || id, subtitle: `UniProt ${id} · Reviewed human protein`, sourceUrl: `https://www.uniprot.org/uniprotkb/${id}/entry`, properties: [
         { label: 'Organism', value: text(obj(p.organism).scientificName) || 'Not supplied' },
         { label: 'Gene', value: list(p.genes).map(g => text(obj(obj(g).geneName).value)).filter(Boolean).join(', ') || 'Not supplied' },
         { label: 'Sequence length', value: text(obj(p.sequence).length) ? `${text(obj(p.sequence).length)} amino acids` : 'Not supplied' },
