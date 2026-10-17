@@ -22,3 +22,7 @@
 - Writes drafts only; never overwrites an entry that is `reviewed: true`.
 - Records source, URL, license, and retrieval date on every row.
 - Fails loudly if a row has no license.
+
+## Implementation status (2026-10-17)
+
+The static tables now exist: 16 original draft entries, 16 draft questions, 11 relations, and source metadata. All review flags remain false. There are no diagrams or imported textbook passages. `lib/catalog.ts` validates content and filters public reads; `lib/study.ts` supplies quiz and flashcard logic; `lib/storage.ts` manages device-only progress. See `INTEGRATION.md` for frontend usage and `CONTENT-SOURCES.md` for current source/license research. The automatic import script remains future work.

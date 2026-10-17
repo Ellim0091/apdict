@@ -1,0 +1,302 @@
+[
+  {
+    "id": "water",
+    "term": "Water",
+    "aliases": [],
+    "type": "concept",
+    "course": "both",
+    "unit": 1,
+    "category": "Chemical foundations",
+    "summary": "Water is a polar molecule that supports many biological and chemical processes.",
+    "definition": "Oxygen draws shared electrons more strongly than hydrogen, producing partial charges. Attractions between water molecules help explain cohesion, surface tension, and its ability to dissolve many ionic and polar substances.",
+    "keyFact": "H₂O",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-2-2-water"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "hydrogen-bond",
+    "term": "Hydrogen bond",
+    "aliases": [],
+    "type": "concept",
+    "course": "both",
+    "unit": 1,
+    "category": "Chemical foundations",
+    "summary": "A hydrogen bond is an attraction involving hydrogen bonded to an electronegative atom.",
+    "definition": "In common AP examples, hydrogen attached to oxygen or nitrogen is attracted to an electron-rich region on another atom. Hydrogen bonds help stabilize DNA base pairing and influence the properties of water; they are distinct from the covalent bonds within a water molecule.",
+    "keyFact": "Intermolecular attraction",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-2-2-water"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "ph",
+    "term": "pH",
+    "aliases": [
+      "acidity"
+    ],
+    "type": "concept",
+    "course": "both",
+    "unit": 1,
+    "category": "Acids & bases",
+    "summary": "pH expresses the acidity of an aqueous solution on a logarithmic scale.",
+    "definition": "For dilute solutions, pH is commonly calculated from hydronium concentration in moles per liter. A decrease of one pH unit corresponds to a tenfold increase in that concentration. Temperature affects the pH of neutral water.",
+    "keyFact": "pH = −log₁₀[H₃O⁺]",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-2-2-water"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "enzyme",
+    "term": "Enzyme",
+    "aliases": [],
+    "type": "concept",
+    "course": "ap-bio",
+    "unit": 3,
+    "category": "Cellular energetics",
+    "summary": "An enzyme speeds a reaction without being consumed overall.",
+    "definition": "Most enzymes are proteins with active sites that bind particular substrates. They provide a reaction pathway with a lower activation barrier. They do not change the overall free-energy difference or the equilibrium constant of a reaction.",
+    "keyFact": "Lower activation energy",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-6-5-enzymes"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "activation-energy",
+    "term": "Activation energy",
+    "aliases": [],
+    "type": "concept",
+    "course": "both",
+    "unit": 3,
+    "category": "Cellular energetics",
+    "summary": "Activation energy describes the barrier that reactants must overcome to react.",
+    "definition": "Colliding particles need an appropriate orientation and sufficient energy to reach a transition state. A catalyst provides an alternative pathway with a lower barrier, increasing reaction rate at the same temperature.",
+    "keyFact": "Energy barrier",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-6-5-enzymes"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "atp",
+    "term": "ATP",
+    "aliases": [
+      "adenosine triphosphate"
+    ],
+    "type": "concept",
+    "course": "ap-bio",
+    "unit": 3,
+    "category": "Cellular energetics",
+    "summary": "ATP participates in energy coupling in cells.",
+    "definition": "Cells couple favorable ATP hydrolysis to processes such as active transport and chemical synthesis. The overall hydrolysis reaction can release usable free energy because its products are more stable under cellular conditions; simply breaking a bond requires energy.",
+    "keyFact": "Adenosine triphosphate",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-6-4-atp-adenosine-triphosphate"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "diffusion",
+    "term": "Diffusion",
+    "aliases": [],
+    "type": "concept",
+    "course": "ap-bio",
+    "unit": 2,
+    "category": "Membranes & transport",
+    "summary": "Diffusion is the net spread of particles from higher to lower concentration.",
+    "definition": "Random molecular motion occurs in all directions. When a concentration difference exists, the net movement tends to reduce that difference. Molecules continue moving at equilibrium, but there is no net concentration-driven flux.",
+    "keyFact": "Down a concentration gradient",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-5-2-passive-transport"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "osmosis",
+    "term": "Osmosis",
+    "aliases": [],
+    "type": "concept",
+    "course": "ap-bio",
+    "unit": 2,
+    "category": "Membranes & transport",
+    "summary": "Osmosis is the net movement of water across a selectively permeable membrane.",
+    "definition": "When other conditions are equal, water tends to move toward the side with a higher concentration of solutes that cannot cross the membrane. Pressure can oppose this movement, so solute concentration alone does not describe every situation.",
+    "keyFact": "Water across a membrane",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-5-2-passive-transport"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "active-transport",
+    "term": "Active transport",
+    "aliases": [],
+    "type": "concept",
+    "course": "ap-bio",
+    "unit": 2,
+    "category": "Membranes & transport",
+    "summary": "Active transport moves substances against an electrochemical gradient.",
+    "definition": "Membrane transport proteins can use ATP directly or use energy stored in another ion gradient. This differs from passive transport, which follows the relevant electrochemical gradient without an external energy input.",
+    "keyFact": "Requires an energy source",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-5-3-active-transport"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "dna",
+    "term": "DNA",
+    "aliases": [
+      "deoxyribonucleic acid"
+    ],
+    "type": "concept",
+    "course": "ap-bio",
+    "unit": 6,
+    "category": "Genetic information",
+    "summary": "DNA stores hereditary information in its nucleotide sequence.",
+    "definition": "A DNA strand has a sugar-phosphate backbone and a sequence of nitrogen-containing bases. In a typical double helix, two antiparallel strands pair through complementary bases. Base sequence provides information used in producing RNA and proteins.",
+    "keyFact": "A–T · G–C",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "biology-2e-14-2-dna-structure-and-sequencing"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "mole",
+    "term": "Mole",
+    "aliases": [
+      "mol"
+    ],
+    "type": "concept",
+    "course": "ap-chem",
+    "unit": 1,
+    "category": "Atomic structure",
+    "summary": "The mole is the SI unit of amount of substance.",
+    "definition": "One mole contains exactly 6.02214076 × 10²³ specified elementary entities. Those entities might be atoms, molecules, ions, or other particles. Molar mass connects the amount in moles to the mass of a sample.",
+    "keyFact": "6.02214076 × 10²³ entities",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "chemistry-2e-3-1-formula-mass-and-the-mole-concept"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "covalent-bond",
+    "term": "Covalent bond",
+    "aliases": [],
+    "type": "concept",
+    "course": "ap-chem",
+    "unit": 2,
+    "category": "Bonding",
+    "summary": "A covalent bond involves shared electron density between atoms.",
+    "definition": "Attraction between nuclei and shared electrons can hold atoms together. Sharing can be unequal when atoms differ in electronegativity. Bond polarity and molecular geometry together influence whether a whole molecule is polar.",
+    "keyFact": "Shared electron density",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "chemistry-2e-7-2-covalent-bonding"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "equilibrium",
+    "term": "Chemical equilibrium",
+    "aliases": [],
+    "type": "concept",
+    "course": "ap-chem",
+    "unit": 7,
+    "category": "Equilibrium",
+    "summary": "At dynamic equilibrium, forward and reverse reaction rates are equal.",
+    "definition": "In a closed system at fixed conditions, equal opposing rates keep macroscopic concentrations constant. Those concentrations need not be equal to each other. A catalyst helps the system approach equilibrium without changing the equilibrium constant.",
+    "keyFact": "Forward rate = reverse rate",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "chemistry-2e-13-1-chemical-equilibria"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "buffer",
+    "term": "Buffer",
+    "aliases": [],
+    "type": "concept",
+    "course": "ap-chem",
+    "unit": 8,
+    "category": "Acids & bases",
+    "summary": "A buffer limits pH changes after small additions of acid or base.",
+    "definition": "A typical buffer contains appreciable amounts of a weak acid and its conjugate base. The base component consumes added acid, while the acid component consumes added base. Buffer capacity is finite and depends on the amounts present.",
+    "keyFact": "Weak acid + conjugate base",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "chemistry-2e-14-6-buffers"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "oxidation",
+    "term": "Oxidation",
+    "aliases": [
+      "electron loss"
+    ],
+    "type": "concept",
+    "course": "ap-chem",
+    "unit": 4,
+    "category": "Reactions",
+    "summary": "Oxidation is an increase in oxidation state.",
+    "definition": "Electron transfer is a useful model for oxidation-reduction reactions: the oxidized species loses electrons while another species is reduced. Oxidation and reduction occur together, including in many energy-transfer reactions in cells.",
+    "keyFact": "Loss of electrons",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "chemistry-2e-4-2-classifying-chemical-reactions"
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "reduction",
+    "term": "Reduction",
+    "aliases": [
+      "electron gain"
+    ],
+    "type": "concept",
+    "course": "ap-chem",
+    "unit": 4,
+    "category": "Reactions",
+    "summary": "Reduction is a decrease in oxidation state.",
+    "definition": "A species that gains electrons is reduced and acts as the oxidizing agent for its reaction partner. Reduction is always paired with oxidation, so total charge and electron accounting must balance.",
+    "keyFact": "Gain of electrons",
+    "diagramIds": [],
+    "sourceIds": [
+      "original-drafts",
+      "chemistry-2e-4-2-classifying-chemical-reactions"
+    ],
+    "reviewed": false
+  }
+]

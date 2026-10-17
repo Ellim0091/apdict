@@ -1,0 +1,68 @@
+[
+  {
+    "fromId": "water",
+    "toId": "hydrogen-bond",
+    "kind": "requires",
+    "reason": "Hydrogen bonding helps explain the collective behavior of water."
+  },
+  {
+    "fromId": "water",
+    "toId": "osmosis",
+    "kind": "part-of",
+    "reason": "Osmosis describes water movement across a selective membrane."
+  },
+  {
+    "fromId": "ph",
+    "toId": "buffer",
+    "kind": "contrasts",
+    "reason": "pH describes acidity; a buffer limits changes in pH."
+  },
+  {
+    "fromId": "enzyme",
+    "toId": "activation-energy",
+    "kind": "leads-to",
+    "reason": "An enzyme provides a pathway with a lower activation barrier."
+  },
+  {
+    "fromId": "atp",
+    "toId": "active-transport",
+    "kind": "leads-to",
+    "reason": "ATP hydrolysis can supply energy to primary active transport."
+  },
+  {
+    "fromId": "diffusion",
+    "toId": "osmosis",
+    "kind": "contrasts",
+    "reason": "Diffusion can describe many particles; osmosis specifically concerns water across a membrane."
+  },
+  {
+    "fromId": "active-transport",
+    "toId": "diffusion",
+    "kind": "contrasts",
+    "reason": "Active transport can oppose a gradient, whereas diffusion follows it."
+  },
+  {
+    "fromId": "dna",
+    "toId": "hydrogen-bond",
+    "kind": "requires",
+    "reason": "Hydrogen bonds contribute to complementary base pairing."
+  },
+  {
+    "fromId": "covalent-bond",
+    "toId": "water",
+    "kind": "part-of",
+    "reason": "The oxygen and hydrogen atoms within water are covalently bonded."
+  },
+  {
+    "fromId": "enzyme",
+    "toId": "equilibrium",
+    "kind": "contrasts",
+    "reason": "Enzymes change reaction speed, not the equilibrium constant."
+  },
+  {
+    "fromId": "oxidation",
+    "toId": "reduction",
+    "kind": "requires",
+    "reason": "Electrons lost in oxidation are gained in reduction."
+  }
+]

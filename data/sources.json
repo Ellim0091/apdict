@@ -1,0 +1,98 @@
+[
+  {
+    "id": "original-drafts",
+    "name": "Nucleus original draft explanations and questions",
+    "url": "https://github.com/Ellim0091/apdict",
+    "license": "Original project material; redistribution license not yet designated by owner",
+    "retrievedOn": "2026-10-17",
+    "attribution": "Original AI-assisted draft content for Nucleus. Requires owner accuracy and AP alignment review."
+  },
+  {
+    "id": "biology-2e-2-2-water",
+    "name": "OpenStax Biology 2e — further reading",
+    "url": "https://openstax.org/books/biology-2e/pages/2-2-water",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "biology-2e-6-5-enzymes",
+    "name": "OpenStax Biology 2e — further reading",
+    "url": "https://openstax.org/books/biology-2e/pages/6-5-enzymes",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "biology-2e-6-4-atp-adenosine-triphosphate",
+    "name": "OpenStax Biology 2e — further reading",
+    "url": "https://openstax.org/books/biology-2e/pages/6-4-atp-adenosine-triphosphate",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "biology-2e-5-2-passive-transport",
+    "name": "OpenStax Biology 2e — further reading",
+    "url": "https://openstax.org/books/biology-2e/pages/5-2-passive-transport",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "biology-2e-5-3-active-transport",
+    "name": "OpenStax Biology 2e — further reading",
+    "url": "https://openstax.org/books/biology-2e/pages/5-3-active-transport",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "biology-2e-14-2-dna-structure-and-sequencing",
+    "name": "OpenStax Biology 2e — further reading",
+    "url": "https://openstax.org/books/biology-2e/pages/14-2-dna-structure-and-sequencing",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "chemistry-2e-3-1-formula-mass-and-the-mole-concept",
+    "name": "OpenStax Chemistry 2e — further reading",
+    "url": "https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "chemistry-2e-7-2-covalent-bonding",
+    "name": "OpenStax Chemistry 2e — further reading",
+    "url": "https://openstax.org/books/chemistry-2e/pages/7-2-covalent-bonding",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "chemistry-2e-13-1-chemical-equilibria",
+    "name": "OpenStax Chemistry 2e — further reading",
+    "url": "https://openstax.org/books/chemistry-2e/pages/13-1-chemical-equilibria",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "chemistry-2e-14-6-buffers",
+    "name": "OpenStax Chemistry 2e — further reading",
+    "url": "https://openstax.org/books/chemistry-2e/pages/14-6-buffers",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  },
+  {
+    "id": "chemistry-2e-4-2-classifying-chemical-reactions",
+    "name": "OpenStax Chemistry 2e — further reading",
+    "url": "https://openstax.org/books/chemistry-2e/pages/4-2-classifying-chemical-reactions",
+    "license": "CC BY-NC-SA 4.0; reference link only, no text or art imported",
+    "retrievedOn": "2026-10-17",
+    "attribution": "OpenStax, Rice University. Reference for human review; draft prose is independently authored, not an excerpt."
+  }
+]

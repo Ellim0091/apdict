@@ -1,0 +1,226 @@
+[
+  {
+    "id": "water-01",
+    "entryId": "water",
+    "prompt": "Which property makes water effective at dissolving many ionic substances?",
+    "choices": [
+      "Polarity",
+      "A nonpolar structure",
+      "An absence of electrons",
+      "Permanent covalent bonds to every solute"
+    ],
+    "answerIndex": 0,
+    "explanation": "Partial charges allow water molecules to surround and stabilize dissolved ions.",
+    "reviewed": false
+  },
+  {
+    "id": "hydrogen-bond-01",
+    "entryId": "hydrogen-bond",
+    "prompt": "What connects separate water molecules in a hydrogen-bonded network?",
+    "choices": [
+      "Sharing all electrons equally",
+      "Attractions between partial charges",
+      "Formation of new oxygen nuclei",
+      "Transfer of protons in every interaction"
+    ],
+    "answerIndex": 1,
+    "explanation": "Hydrogen bonding is an attraction involving partial charges, rather than a new covalent O–H bond.",
+    "reviewed": false
+  },
+  {
+    "id": "ph-01",
+    "entryId": "ph",
+    "prompt": "A decrease from pH 6 to pH 4 represents what change in hydronium concentration?",
+    "choices": [
+      "2 times higher",
+      "2 times lower",
+      "100 times higher",
+      "100 times lower"
+    ],
+    "answerIndex": 2,
+    "explanation": "Two pH units correspond to a factor of ten squared.",
+    "reviewed": false
+  },
+  {
+    "id": "enzyme-01",
+    "entryId": "enzyme",
+    "prompt": "What does an enzyme change?",
+    "choices": [
+      "The reaction equilibrium constant",
+      "The overall reaction free energy",
+      "The identity of the elements",
+      "The activation energy"
+    ],
+    "answerIndex": 3,
+    "explanation": "Catalysts lower the activation barrier without changing the thermodynamic endpoints.",
+    "reviewed": false
+  },
+  {
+    "id": "activation-energy-01",
+    "entryId": "activation-energy",
+    "prompt": "Why does a catalyst increase reaction rate?",
+    "choices": [
+      "It lowers the energy barrier",
+      "It makes every reaction release heat",
+      "It removes products from equilibrium",
+      "It increases the mass of reactants"
+    ],
+    "answerIndex": 0,
+    "explanation": "A lower barrier allows more reactant encounters to lead to reaction.",
+    "reviewed": false
+  },
+  {
+    "id": "atp-01",
+    "entryId": "atp",
+    "prompt": "How does ATP help drive an unfavorable cellular process?",
+    "choices": [
+      "By eliminating conservation of energy",
+      "By coupling it to a favorable reaction",
+      "By making all bonds energy-releasing",
+      "By acting as genetic material"
+    ],
+    "answerIndex": 1,
+    "explanation": "Coupled reactions can have a favorable combined free-energy change.",
+    "reviewed": false
+  },
+  {
+    "id": "diffusion-01",
+    "entryId": "diffusion",
+    "prompt": "At diffusion equilibrium, molecules are:",
+    "choices": [
+      "Completely motionless",
+      "All in one location",
+      "Still moving without net directional flow",
+      "Using ATP to stay still"
+    ],
+    "answerIndex": 2,
+    "explanation": "Equilibrium is dynamic: microscopic motion continues.",
+    "reviewed": false
+  },
+  {
+    "id": "osmosis-01",
+    "entryId": "osmosis",
+    "prompt": "With equal pressure, water tends to move toward a solution with:",
+    "choices": [
+      "Fewer nonpenetrating solutes",
+      "No dissolved particles in every case",
+      "A lower water potential only if ATP is used",
+      "More nonpenetrating solutes"
+    ],
+    "answerIndex": 3,
+    "explanation": "Nonpenetrating solutes reduce water potential under otherwise equal conditions.",
+    "reviewed": false
+  },
+  {
+    "id": "active-transport-01",
+    "entryId": "active-transport",
+    "prompt": "Which process requires active transport?",
+    "choices": [
+      "Pumping an ion against its electrochemical gradient",
+      "Oxygen diffusing through a lipid bilayer",
+      "Water moving by osmosis",
+      "An ion flowing down its gradient through a channel"
+    ],
+    "answerIndex": 0,
+    "explanation": "Moving against the electrochemical gradient requires coupling to an energy source.",
+    "reviewed": false
+  },
+  {
+    "id": "dna-01",
+    "entryId": "dna",
+    "prompt": "Which bases pair in typical double-stranded DNA?",
+    "choices": [
+      "A with G and T with C",
+      "A with T and G with C",
+      "A with C and G with T",
+      "Every base with itself"
+    ],
+    "answerIndex": 1,
+    "explanation": "Complementary DNA base pairs are adenine–thymine and guanine–cytosine.",
+    "reviewed": false
+  },
+  {
+    "id": "mole-01",
+    "entryId": "mole",
+    "prompt": "What must be specified when describing one mole?",
+    "choices": [
+      "Its color",
+      "Its container shape",
+      "The kind of elementary entity",
+      "Its electrical conductivity"
+    ],
+    "answerIndex": 2,
+    "explanation": "A mole counts specified entities, such as atoms or molecules.",
+    "reviewed": false
+  },
+  {
+    "id": "covalent-bond-01",
+    "entryId": "covalent-bond",
+    "prompt": "What best describes a polar covalent bond?",
+    "choices": [
+      "No electrons are involved",
+      "Electrons are shared perfectly equally",
+      "The nuclei merge",
+      "Electron density is shared unequally"
+    ],
+    "answerIndex": 3,
+    "explanation": "Different electronegativities lead to unequal electron sharing.",
+    "reviewed": false
+  },
+  {
+    "id": "equilibrium-01",
+    "entryId": "equilibrium",
+    "prompt": "Which condition holds at dynamic equilibrium?",
+    "choices": [
+      "Forward and reverse rates are equal",
+      "All concentrations are equal",
+      "All reactions stop",
+      "All reactants disappear"
+    ],
+    "answerIndex": 0,
+    "explanation": "Equal opposing rates maintain constant concentrations even as reactions continue.",
+    "reviewed": false
+  },
+  {
+    "id": "buffer-01",
+    "entryId": "buffer",
+    "prompt": "A common buffer contains:",
+    "choices": [
+      "Only a strong acid",
+      "A weak acid and its conjugate base",
+      "Only pure water",
+      "A noble gas and a metal"
+    ],
+    "answerIndex": 1,
+    "explanation": "The conjugate pair provides components that react with added acid or base.",
+    "reviewed": false
+  },
+  {
+    "id": "oxidation-01",
+    "entryId": "oxidation",
+    "prompt": "In an electron-transfer model, oxidation means:",
+    "choices": [
+      "Gaining neutrons",
+      "Gaining electrons",
+      "Losing electrons",
+      "Losing protons in every case"
+    ],
+    "answerIndex": 2,
+    "explanation": "Loss of electrons corresponds to oxidation.",
+    "reviewed": false
+  },
+  {
+    "id": "reduction-01",
+    "entryId": "reduction",
+    "prompt": "A species that gains electrons is:",
+    "choices": [
+      "Oxidized",
+      "Always neutral",
+      "Always an acid",
+      "Reduced"
+    ],
+    "answerIndex": 3,
+    "explanation": "Electron gain is reduction; the reaction partner supplies the electrons.",
+    "reviewed": false
+  }
+]
