@@ -7,6 +7,7 @@ export interface ExternalRecord {
   definition?: { text: string; sourceName: string; sourceUrl: string; license: string; licenseUrl: string };
   definitionUnavailable?: boolean;
   definitionUnavailableReason?: 'not-provided' | 'not-licensed' | 'request-failed';
+  sequenceDiagram?: { length: number; features: { label: string; start: number; end: number }[] };
   properties: { label: string; value: string }[];
 }
 export interface LookupResult {

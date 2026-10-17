@@ -17,3 +17,5 @@ The user enabled PubChem and UniProt integration. Submitting the live database f
 ## Related chemical lookup
 
 For a submitted PubChem search, the first result now also triggers structure retrieval from PubChem and a ChEMBL similarity lookup. The compound structure is sent to ChEMBL; selecting a neighbor sends its InChIKey to PubChem. Short-lived server caches and standard host request-log behavior apply as described in `LIVE-DATABASES.md`. Student study progress remains local.
+
+Search-result compound diagrams are requested through our server from PubChem using the matched CID. The browser does not make a direct PubChem image request. Protein sequence diagrams are drawn locally from the existing UniProt lookup response.

@@ -64,15 +64,22 @@ async function lookup(provider: Provider, query: string): Promise<LookupResult> 
     const accession = /^(?:[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9](?:[A-Z][A-Z0-9]{2}[0-9]){1,2})$/i.test(clean);
     const expression = accession ? `accession:${clean.toUpperCase()}` : `(protein_name:"${clean}" OR gene:"${clean}")`;
     const url = new URL('https://rest.uniprot.org/uniprotkb/search');
-    url.search = new URLSearchParams({ query: `${expression} AND reviewed:true AND organism_id:9606`, format: 'json', size: '5', fields: 'accession,protein_name,gene_names,organism_name,length,cc_function' }).toString();
+    url.search = new URLSearchParams({ query: `${expression} AND reviewed:true AND organism_id:9606`, format: 'json', size: '5', fields: 'accession,protein_name,gene_names,organism_name,length,cc_function,ft_signal,ft_chain,ft_peptide' }).toString();
     const data = obj(await fetchJson(url));
     records = list(data.results).slice(0, 5).flatMap(value => {
       const p = obj(value), id = text(p.primaryAccession);
       if (!/^[A-Z0-9]{6,10}$/.test(id)) return [];
       const recommended = obj(obj(p.proteinDescription).recommendedName);
+      const sequenceLength = Number(obj(p.sequence).length);
+      const sequenceDiagram = Number.isSafeInteger(sequenceLength) && sequenceLength > 0 ? {length:sequenceLength,features:list(p.features).flatMap(value=>{
+        const feature=obj(value),location=obj(feature.location),start=obj(location.start),end=obj(location.end);
+        const a=Number(start.value),b=Number(end.value);
+        if(!['Signal','Chain','Peptide'].includes(text(feature.type)) || start.modifier!=='EXACT' || end.modifier!=='EXACT' || !Number.isSafeInteger(a) || !Number.isSafeInteger(b) || a<1 || b<a || b>sequenceLength) return [];
+        return [{label:text(feature.description) || text(feature.type),start:a,end:b}];
+      }).slice(0,8)} : undefined;
       const functionText = list(p.comments).map(obj).filter(c => c.commentType === 'FUNCTION').flatMap(c => list(c.texts).map(t => text(obj(t).value))).filter(Boolean).join(' ');
       const definition = functionText ? {text: excerpt(functionText), sourceName: 'UniProt Consortium', sourceUrl: `https://www.uniprot.org/uniprotkb/${id}/entry`, license: 'CC BY 4.0 · Function excerpt; formatting adjusted', licenseUrl: 'https://www.uniprot.org/help/license'} : undefined;
-      return [{ id, definition, definitionUnavailable: !definition, definitionUnavailableReason: !definition ? 'not-provided' as const : undefined, title: text(obj(recommended.fullName).value) || id, subtitle: `UniProt ${id} · Reviewed human protein`, sourceUrl: `https://www.uniprot.org/uniprotkb/${id}/entry`, properties: [
+      return [{ id, sequenceDiagram, definition, definitionUnavailable: !definition, definitionUnavailableReason: !definition ? 'not-provided' as const : undefined, title: text(obj(recommended.fullName).value) || id, subtitle: `UniProt ${id} · Reviewed human protein`, sourceUrl: `https://www.uniprot.org/uniprotkb/${id}/entry`, properties: [
         { label: 'Organism', value: text(obj(p.organism).scientificName) || 'Not supplied' },
         { label: 'Gene', value: list(p.genes).map(g => text(obj(obj(g).geneName).value)).filter(Boolean).join(', ') || 'Not supplied' },
         { label: 'Sequence length', value: text(obj(p.sequence).length) ? `${text(obj(p.sequence).length)} amino acids` : 'Not supplied' },
