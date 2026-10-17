@@ -17,6 +17,15 @@ const obj = (value: unknown): Record<string, unknown> => value !== null && typeo
 const list = (value: unknown): unknown[] => Array.isArray(value) ? value : [];
 const text = (value: unknown): string => typeof value === 'string' ? value : typeof value === 'number' && Number.isFinite(value) ? String(value) : '';
 
+function excerpt(value: string): string {
+  const sentences = value.match(/[^.!?]+[.!?]+(?:\s|$)|[^.!?]+$/g) ?? [value];
+  const selected = sentences.slice(0, 2).join(' ').replace(/\s+/g, ' ').trim();
+  return selected.length <= 800 ? selected : selected.slice(0, 800).replace(/\s+\S*$/, '') + '…';
+}
+function safeSourceUrl(value: unknown, fallback: string): string {
+  try { const url = new URL(text(value)); return url.protocol === 'https:' ? url.href : fallback; } catch { return fallback; }
+}
+
 async function lookup(provider: Provider, query: string): Promise<LookupResult> {
   let records: ExternalRecord[];
   if (provider === 'pubchem') {
@@ -32,18 +41,38 @@ async function lookup(provider: Provider, query: string): Promise<LookupResult> 
         { label: 'IUPAC name', value: text(p.IUPACName) || 'Not supplied' },
       ] }];
     });
+    if (records.length) {
+      try {
+        const descriptions = obj(await fetchJson(new URL(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${records.map(r => r.id).join(',')}/description/JSON`)));
+        const information = list(obj(descriptions.InformationList).Information).map(obj);
+        records = records.map(record => {
+          // ChEBI has explicit CC BY reuse terms; do not assume all PubChem prose does.
+          const description = information.find(d => String(d.CID) === record.id && text(d.DescriptionSourceName) === 'ChEBI' && text(d.Description));
+          return description ? { ...record, definition: {
+            text: excerpt(text(description.Description)), sourceName: 'ChEBI via PubChem',
+            sourceUrl: safeSourceUrl(description.DescriptionURL, record.sourceUrl),
+            license: 'CC BY 4.0 · Excerpt; formatting adjusted', licenseUrl: 'https://www.ebi.ac.uk/chebi/about',
+          } } : { ...record, definitionUnavailable: true };
+        });
+      } catch {
+        // Descriptions are optional: compound properties remain available on upstream failure.
+        records = records.map(record => ({...record, definitionUnavailable: true}));
+      }
+    }
   } else {
     const clean = query.replace(/["\\]/g, ' ').trim();
     const accession = /^(?:[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9](?:[A-Z][A-Z0-9]{2}[0-9]){1,2})$/i.test(clean);
     const expression = accession ? `accession:${clean.toUpperCase()}` : `(protein_name:"${clean}" OR gene:"${clean}")`;
     const url = new URL('https://rest.uniprot.org/uniprotkb/search');
-    url.search = new URLSearchParams({ query: `${expression} AND reviewed:true AND organism_id:9606`, format: 'json', size: '5', fields: 'accession,protein_name,gene_names,organism_name,length' }).toString();
+    url.search = new URLSearchParams({ query: `${expression} AND reviewed:true AND organism_id:9606`, format: 'json', size: '5', fields: 'accession,protein_name,gene_names,organism_name,length,cc_function' }).toString();
     const data = obj(await fetchJson(url));
     records = list(data.results).slice(0, 5).flatMap(value => {
       const p = obj(value), id = text(p.primaryAccession);
       if (!/^[A-Z0-9]{6,10}$/.test(id)) return [];
       const recommended = obj(obj(p.proteinDescription).recommendedName);
-      return [{ id, title: text(obj(recommended.fullName).value) || id, subtitle: `UniProt ${id} · Reviewed human protein`, sourceUrl: `https://www.uniprot.org/uniprotkb/${id}/entry`, properties: [
+      const functionText = list(p.comments).map(obj).filter(c => c.commentType === 'FUNCTION').flatMap(c => list(c.texts).map(t => text(obj(t).value))).filter(Boolean).join(' ');
+      const definition = functionText ? {text: excerpt(functionText), sourceName: 'UniProt Consortium', sourceUrl: `https://www.uniprot.org/uniprotkb/${id}/entry`, license: 'CC BY 4.0 · Function excerpt; formatting adjusted', licenseUrl: 'https://www.uniprot.org/help/license'} : undefined;
+      return [{ id, definition, definitionUnavailable: !definition, title: text(obj(recommended.fullName).value) || id, subtitle: `UniProt ${id} · Reviewed human protein`, sourceUrl: `https://www.uniprot.org/uniprotkb/${id}/entry`, properties: [
         { label: 'Organism', value: text(obj(p.organism).scientificName) || 'Not supplied' },
         { label: 'Gene', value: list(p.genes).map(g => text(obj(obj(g).geneName).value)).filter(Boolean).join(', ') || 'Not supplied' },
         { label: 'Sequence length', value: text(obj(p.sequence).length) ? `${text(obj(p.sequence).length)} amino acids` : 'Not supplied' },

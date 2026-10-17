@@ -4,6 +4,8 @@ export interface ExternalRecord {
   title: string;
   subtitle: string;
   sourceUrl: string;
+  definition?: { text: string; sourceName: string; sourceUrl: string; license: string; licenseUrl: string };
+  definitionUnavailable?: boolean;
   properties: { label: string; value: string }[];
 }
 export interface LookupResult {
