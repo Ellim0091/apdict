@@ -1,0 +1,25 @@
+# Secrets - must stay ignored BEFORE the first commit
+.env
+.env.*
+!.env.example
+
+# Dependencies and build output
+node_modules/
+.next/
+out/
+coverage/
+.vercel/
+
+# macOS and logs
+.DS_Store
+*.log
+npm-debug.log*
+
+!.env.example
+
+!.env.example
+# Next.js / TypeScript generated files
+*.tsbuildinfo
+next-env.d.ts
+/build
+*.pem
