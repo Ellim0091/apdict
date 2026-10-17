@@ -93,14 +93,13 @@ export default function Home() {
     <div className="preview-banner"><span>{preview ? "Draft preview · Content and questions await accuracy and AP review." : "The library is being curated. Explore the design with 16 draft concepts."}</span><button onClick={changePreview}>{preview ? "Exit preview" : "Preview draft library"} <span aria-hidden="true">↗</span></button></div>
     {storageError && <p className="storage-warning" role="status">Browser storage is unavailable. Changes work for this visit but may not survive a reload.</p>}
     {view === "home" && <main className="home">
-      <section className="search-hero"><div className="hero-grid" /><div className="hero-text">
+      <section className="search-hero" style={{minHeight:0}}><div className="hero-grid" /><div className="hero-text">
         <span className="overline">Biology + Chemistry</span><h1>Understand science,<br /><em>one term at a time.</em></h1>
-        <p>Search clear, connected explanations for the concepts you meet in class.</p>
-        <div className="search-box"><Icon name="search" /><input aria-label="Search concepts" value={query} onChange={e => setQuery(e.target.value)} placeholder="Try “enzyme” or “covalent bond”" />{query && <button aria-label="Clear search" onClick={() => setQuery("")}><Icon name="close" /></button>}</div>
-        <div className="hint">Typo-friendly search · Follow your curiosity</div>
+        <p>Explore compounds, proteins, and the connections between them.</p>
       </div></section>
       <LiveLookup />
       <section className="results"><div className="results-heading"><div><span>{query ? "Search the library" : "Start exploring"}</span><h2>{query ? `Results for “${query}”` : "Connected concepts"}</h2></div><p>{catalog.entries.length} concepts in the {preview ? "draft " : ""}library</p></div>
+        {catalog.entries.length > 0 && <div className="live-form"><label htmlFor="study-filter">Filter {preview ? 'draft ' : ''}study concepts</label><div><input id="study-filter" value={query} onChange={e => setQuery(e.target.value)} placeholder="Filter these concepts, e.g. enzyme" />{query && <button onClick={() => setQuery('')}>Clear filter</button>}</div><p className="lookup-disclosure">Filters the local study library below.</p></div>}
         <div className="filters" aria-label="Filter by subject">{[["", "All concepts"],["ap-bio","AP Biology"],["ap-chem","AP Chemistry"]].map(([value,label]) => <button key={value} aria-pressed={course === value} className={course === value ? "active" : ""} onClick={() => setCourse(value as Course | "")}>{label}</button>)}</div>
         <div className="suggestion-list">{suggestions.map(termRow)}</div>
         {!suggestions.length && <div className="empty-saved"><h2>{catalog.entries.length ? "No matching concepts" : "A little science is on its way."}</h2><p>{catalog.entries.length ? "Try another word, an abbreviation, or a different subject." : "The first concepts are drafted and awaiting review. You can explore them in preview mode."}</p><button onClick={() => { if (!catalog.entries.length && !preview) changePreview(); else {setQuery("");setCourse("");} }}>{catalog.entries.length ? "Clear filters" : "Explore draft concepts"} <Icon name="arrow" /></button></div>}
