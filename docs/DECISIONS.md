@@ -41,3 +41,7 @@
 ## Still open
 - Entry page layout (definition, diagram, citation, bridging concepts) and Quiz page designs are not in the screenshots yet.
 - Search library choice (typo-friendly); ask before installing.
+
+## User-authorized update: live database lookups (2026-10-17)
+
+The user requested temporary PubChem and biology database integration. This supersedes the earlier no-runtime-external-API decision for the explicit live lookup panel only. PubChem and UniProt now return reference records through a bounded server proxy; the curated study catalog remains static and separately reviewed. See `LIVE-DATABASES.md` for behavior, limits, privacy changes and removal.

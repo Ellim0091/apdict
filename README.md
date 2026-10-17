@@ -6,12 +6,33 @@ Search terms, see cited definitions and diagrams, follow links between related c
 
 Anonymous by design: no accounts, no tracking. Saved concepts and progress stay in your browser.
 
-## Run it
+## Run it on another computer
+
+Install Git and Node.js 24 (including npm). Then:
+
+```sh
+git clone https://github.com/Ellim0091/apdict.git
+cd apdict
+npm ci
+npm run dev
 ```
-nvm use          # Node 24, from .nvmrc
-npm install
-npm run dev      # http://localhost:3000
+
+Open http://localhost:3000 in your browser. If using nvm, run `nvm install` and `nvm use` inside the project before `npm ci`; `.nvmrc` selects Node 24.
+
+If the repository is already cloned:
+
+```sh
+cd apdict
+git pull --ff-only
+npm ci
+npm run dev
 ```
+
+Stop the server with Ctrl+C. To use a production build instead, run `npm run build` followed by `npm start`.
+
+No API keys, `.env` file, database setup, or accounts are required. Internet access is needed for installation, the first font build, and the live PubChem/UniProt lookups. The **Explore live databases** panel is available without draft preview. Select **Preview draft library** to try the 16 local draft concepts, saved terms, flashcards and quizzes. These drafts still require owner review.
+
+Saved terms and study progress are stored in that browser on that computer; they do not sync between laptops.
 
 ## Test it
 ```
@@ -25,4 +46,4 @@ npm test
 - `docs/SECURITY.md`, `docs/PRIVACY.md`, `docs/COSTS.md`, `docs/TESTING.md`
 
 ## Content and credits
-Text and diagrams come from openly licensed sources. Each entry shows its source and license.
+The local library contains original AI-assisted draft explanations and questions, with references for editorial review. No diagrams are included yet. Live database results include source links and attribution. See `docs/CONTENT-SOURCES.md` and `docs/LIVE-DATABASES.md` for provenance and reuse terms.

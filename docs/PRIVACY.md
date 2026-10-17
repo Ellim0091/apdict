@@ -9,3 +9,7 @@
 - Never log user input or progress anywhere.
 - Many users are under 18. If accounts, analytics, or any data collection are ever added,
   review children's privacy rules (e.g. COPPA in the US) first.
+
+## Temporary live lookups (2026-10-17)
+
+The user enabled PubChem and UniProt integration. Submitting the live database form sends the submitted term through our server to the selected provider. Typing alone sends no external query. Server responses/terms may be cached in process memory for ten minutes. Saved concepts and student progress remain on the device. Application code does not log searches, but standard host HTTP access logs may contain request URLs, including lookup terms. See `LIVE-DATABASES.md`.

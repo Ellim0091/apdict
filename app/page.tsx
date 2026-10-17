@@ -5,6 +5,7 @@ import { getCatalog, getDraftCatalog, getEntry, searchEntries } from "@/lib/cata
 import { createQuiz, getFlashcards, gradeAnswer, scoreQuiz, type QuizItem } from "@/lib/study";
 import { toggleSaved, recordReview, recordQuiz } from "@/lib/storage";
 import { useStudy } from "@/lib/use-study";
+import LiveLookup from "./components/live-lookup";
 import type { Course, Entry } from "@/lib/types";
 
 type View = "home" | "term" | "saved" | "flashcards" | "quiz";
@@ -95,9 +96,10 @@ export default function Home() {
       <section className="search-hero"><div className="hero-grid" /><div className="hero-text">
         <span className="overline">Biology + Chemistry</span><h1>Understand science,<br /><em>one term at a time.</em></h1>
         <p>Search clear, connected explanations for the concepts you meet in class.</p>
-        <div className="search-box"><Icon name="search" /><input aria-label="Search concepts" value={query} onChange={e => setQuery(e.target.value)} placeholder="Try “enzime” or “covalent bond”" />{query && <button aria-label="Clear search" onClick={() => setQuery("")}><Icon name="close" /></button>}</div>
+        <div className="search-box"><Icon name="search" /><input aria-label="Search concepts" value={query} onChange={e => setQuery(e.target.value)} placeholder="Try “enzyme” or “covalent bond”" />{query && <button aria-label="Clear search" onClick={() => setQuery("")}><Icon name="close" /></button>}</div>
         <div className="hint">Typo-friendly search · Follow your curiosity</div>
       </div></section>
+      <LiveLookup />
       <section className="results"><div className="results-heading"><div><span>{query ? "Search the library" : "Start exploring"}</span><h2>{query ? `Results for “${query}”` : "Connected concepts"}</h2></div><p>{catalog.entries.length} concepts in the {preview ? "draft " : ""}library</p></div>
         <div className="filters" aria-label="Filter by subject">{[["", "All concepts"],["ap-bio","AP Biology"],["ap-chem","AP Chemistry"]].map(([value,label]) => <button key={value} aria-pressed={course === value} className={course === value ? "active" : ""} onClick={() => setCourse(value as Course | "")}>{label}</button>)}</div>
         <div className="suggestion-list">{suggestions.map(termRow)}</div>
